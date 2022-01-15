@@ -1,5 +1,6 @@
 ﻿using BlazorWasmApp.Shared;
 using Core.Common.Interfaces;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,20 +11,28 @@ namespace Core.Services.SuperHeros
 {
     public class SuperHeroService : ISuperHeroService
     {
-        private static List<SuperHero> superHeroes = new List<SuperHero>
+        private readonly IApplicationDbContext _context;
+        private readonly ILogger logger;
+        public SuperHeroService(IApplicationDbContext context, ILogger<SuperHeroService> logger)
         {
-            new SuperHero{Id =1, Name ="Spider Man"},
-            new SuperHero{Id =10, Name ="Iron Man"},
-            new SuperHero{Id =12, Name ="Bat Man"},
-            new SuperHero{Id =14, Name ="Hulk"},
+            _context = context;
+            this.logger = logger;
+        }
+        private static List<SuperHeroVM> superHeroes = new List<SuperHeroVM>
+        {
+            new SuperHeroVM{Id =1, Name ="Spider Man"},
+            new SuperHeroVM{Id =10, Name ="Iron Man"},
+            new SuperHeroVM{Id =12, Name ="Bat Man"},
+            new SuperHeroVM{Id =14, Name ="Hulk"},
 
         };
-        public List<SuperHero> GetAllSuperHeroes()
+        public List<SuperHeroVM> GetAllSuperHeroes()
         {
+            var superHeroes = _context.SuperHeros.Select(x=>new SuperHeroVM { Id=x.Id,Name=x.Name}).ToList();
             return superHeroes;
         }
 
-        public SuperHero GetSuperHeroById(int id)
+        public SuperHeroVM GetSuperHeroById(int id)
         {
             return superHeroes.FirstOrDefault(x =>x.Id==id);
         }

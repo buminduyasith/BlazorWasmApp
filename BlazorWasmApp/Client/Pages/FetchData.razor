@@ -12,7 +12,11 @@
 
 @if (superHeroes == null)
 {
-    <p><em>Loading...</em></p>
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
 }
 else
 {
@@ -36,17 +40,66 @@ else
             }
         </tbody>
     </table>
+
+
+    <EditForm Model="@hero" OnValidSubmit="@SubmitValidForm">
+
+        <FluentValidationValidator @ref="_fluentValidationValidator" />
+        @* <ValidationSummary />*@
+
+        <InputTextCustome Label="Super Hero" PLaceHolder="Type Super Hero Name..." @bind-Value="@hero.Name" />
+
+        <button type="submit" class="btn px-3 btn-lg btn-outline-primary my-2">Save</button>
+    </EditForm>
+
+    @*<button @onclick="PartialValidate">Partial Validation</button>*@
+
+    <hr />
+
+    @*<EditForm Model="@user" OnValidSubmit="@SubmitValidForm">
+
+        <FluentValidationValidator @ref="_fluentValidationValidator" />
+
+
+        <InputTextCustome Label="UserName" PLaceHolder="Type User Name..." @bind-Value="@user.UserName" />
+        <InputTextCustome Label="FirstName" PLaceHolder="Type First Name..." @bind-Value="@user.FName" />
+        <InputTextCustome Label="PhoneNumber" PLaceHolder="Type Phone Number..." @bind-Value="@user.PhoneNumber" />
+
+        <button type="submit">Save</button>
+    </EditForm>*@
 }
 
 @code {
     private WeatherForecast[]? forecasts;
-    private List<SuperHero>? superHeroes;
+    private List<SuperHeroVM>? superHeroes;
+
+    private string superHeroName="wowwwww";
+
+    private SuperHeroVM hero = new SuperHeroVM();
+
+    private UserVm user = new UserVm();
+
+    private FluentValidationValidator _fluentValidationValidator;
+
 
     protected override async Task OnInitializedAsync()
     {
         //forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
 
         superHeroes = await SuperHeroApiService.GetAllSuperHeros();
+        
 
+    }
+
+      void SubmitValidForm()
+    {
+        Console.WriteLine("Form Submitted Successfully!");
+    }
+      
+   
+
+    void PartialValidate()
+    {
+        Console.WriteLine($"Partial validation result : {_fluentValidationValidator.Validate(options => options.IncludeRuleSets("Names"))}");
     }
 }

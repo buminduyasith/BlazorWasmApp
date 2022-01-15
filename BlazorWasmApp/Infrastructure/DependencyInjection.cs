@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Infrastructure.Persistence;
+using Core.Common.Interfaces;
 
 namespace Infrastructure
 {
@@ -22,6 +23,8 @@ namespace Infrastructure
 
             // var useInMemory = configuration.GetValue<bool>("UseInMemoryDatabase");
             // var useInMemory = configuration.GetSection("UseInMemoryDatabase").Value.ToString
+
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {

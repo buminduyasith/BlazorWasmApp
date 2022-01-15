@@ -1,0 +1,39 @@
+﻿@inherits Microsoft.AspNetCore.Components.Forms.InputText
+@using System.ComponentModel.DataAnnotations
+@using System.Reflection
+
+ <div class="form-group">
+    <label for="exampleInputEmail1">@Label</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=@PLaceHolder @bind="@CurrentValue" @bind:event="oninput">
+
+    @foreach (var item in EditContext.GetValidationMessages(FieldIdentifier))
+   {
+       <div class="validation-message">@item</div>
+   }
+
+    @if (IsHeplerTextDisplay)
+    {
+         <small id="inputhelper" class="form-text text-muted">@HelperText</small>
+    }
+
+  </div>
+
+@code {
+    [Parameter]
+    public string Label { get; set; }
+
+    [Parameter]
+    public string? HelperText { get; set; }
+
+    [Parameter]
+    public string PLaceHolder { get; set; }
+
+    [Parameter]
+    public bool IsHeplerTextDisplay { get; set; } = false;
+
+
+   
+
+   
+
+}

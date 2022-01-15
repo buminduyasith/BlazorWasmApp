@@ -9,7 +9,7 @@ namespace Core.Common.Interfaces
 {
     public interface ISuperHeroService
     {
-        List<SuperHero> GetAllSuperHeroes();
-        SuperHero GetSuperHeroById(int id);
+        List<SuperHeroVM> GetAllSuperHeroes();
+        SuperHeroVM GetSuperHeroById(int id);
     }
 }

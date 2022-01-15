@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Core.SuperHeros.Queries
 {
-    public class GetAllSuperHeroQuery:IRequest<List<SuperHero>>
+    public class GetAllSuperHeroQuery:IRequest<List<SuperHeroVM>>
     {
     }
-    public class GetAllSuperHeroQueryHanlder : IRequestHandler<GetAllSuperHeroQuery, List<SuperHero>>
+    public class GetAllSuperHeroQueryHanlder : IRequestHandler<GetAllSuperHeroQuery, List<SuperHeroVM>>
     {
         private readonly ISuperHeroService _superHeroService;
         private readonly ILogger _logger;
@@ -22,7 +22,7 @@ namespace Core.SuperHeros.Queries
             _superHeroService = superHeroService;
             _logger = logger;
         }
-        public  Task<List<SuperHero>> Handle(GetAllSuperHeroQuery request, CancellationToken cancellationToken)
+        public  Task<List<SuperHeroVM>> Handle(GetAllSuperHeroQuery request, CancellationToken cancellationToken)
         {
             return Task.FromResult(_superHeroService.GetAllSuperHeroes());
         }

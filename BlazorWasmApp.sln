@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasmApp.Server", "BlazorWasmApp\Server\BlazorWasmApp.Server.csproj", "{63032AE3-8BAD-4086-9103-C723E2420B45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmApp.Server", "BlazorWasmApp\Server\BlazorWasmApp.Server.csproj", "{63032AE3-8BAD-4086-9103-C723E2420B45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasmApp.Client", "BlazorWasmApp\Client\BlazorWasmApp.Client.csproj", "{59860A0A-160A-467B-B8B3-0F204ED59A51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmApp.Client", "BlazorWasmApp\Client\BlazorWasmApp.Client.csproj", "{59860A0A-160A-467B-B8B3-0F204ED59A51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasmApp.Shared", "BlazorWasmApp\Shared\BlazorWasmApp.Shared.csproj", "{422D3CBB-83A8-4A0B-B791-FE394C68D9B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmApp.Shared", "BlazorWasmApp\Shared\BlazorWasmApp.Shared.csproj", "{422D3CBB-83A8-4A0B-B791-FE394C68D9B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "BlazorWasmApp\Core\Core.csproj", "{5CEF293B-EE07-48A0-9C61-0BD41FAC704E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "BlazorWasmApp\Core\Core.csproj", "{5CEF293B-EE07-48A0-9C61-0BD41FAC704E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "BlazorWasmApp\Infrastructure\Infrastructure.csproj", "{3EE76D05-4B6F-4172-9F7E-15068F100EC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "BlazorWasmApp\Infrastructure\Infrastructure.csproj", "{3EE76D05-4B6F-4172-9F7E-15068F100EC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "BlazorWasmApp\Domain\Domain.csproj", "{873009B6-7960-41D5-B114-61B9F820F4D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "BlazorWasmApp\Domain\Domain.csproj", "{873009B6-7960-41D5-B114-61B9F820F4D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

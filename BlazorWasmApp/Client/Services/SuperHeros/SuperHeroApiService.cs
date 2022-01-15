@@ -10,9 +10,9 @@ namespace BlazorWasmApp.Client.Services.SuperHeros
         {
             _httpClient = httpClient;
         }
-        public async Task<List<SuperHero>> GetAllSuperHeros()
+        public async Task<List<SuperHeroVM>> GetAllSuperHeros()
         {
-            var data =  await _httpClient.GetFromJsonAsync<List<SuperHero>>("api/superheros");
+            var data =  await _httpClient.GetFromJsonAsync<List<SuperHeroVM>>("api/superheros");
             return data;
         }
     }
